@@ -2,6 +2,7 @@ resource "aws_launch_template" "launch_template" {
   name          = "aws-launch-template"
   image_id      = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
+  key_name = aws_key_pair.kp.key_name
 
   network_interfaces {
     device_index    = 0
