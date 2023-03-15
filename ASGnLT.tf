@@ -20,9 +20,9 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
   desired_capacity    = 2
   max_size            = 3
   min_size            = 2
-  vpc_zone_identifier = [aws_subnet.private[1].id]
+  vpc_zone_identifier = [for i in aws_subnet.private[*] : i.id] 
   target_group_arns   = [aws_lb_target_group.lb_target_group-2.arn]
-  name = "Docker-asg"
+  name = "web-asg"
 
   launch_template {
     id      = aws_launch_template.launch_template.id
