@@ -44,7 +44,7 @@ resource "aws_security_group" "jenkins" {
   }
 
   ingress {
-    description = "HTTP from Internet"
+    description = "SSH only  from bastian EC2 "
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -68,7 +68,7 @@ resource "aws_security_group" "ansible" {
   vpc_id      = aws_vpc.test.id
 
   ingress {
-    description = "HTTP from Internet"
+    description = "SSH only from jenkins and bastian EC2"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -91,7 +91,7 @@ resource "aws_security_group" "web" {
   vpc_id      = aws_vpc.test.id
 
   ingress {
-    description = "HTTP from Internet"
+    description = "SSH only from ansible controller and bastian EC2 "
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
