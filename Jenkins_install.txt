@@ -7,10 +7,10 @@ apt-get install openjdk-11-jdk  -y
 
 apt-get install openjdk-11-jre  -y
 
-curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key |  tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  https://pkg.jenkins.io/debian-stable binary/ |  tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt-get update
-sudo apt-get install jenkins
+apt-get update
+apt-get install jenkins
